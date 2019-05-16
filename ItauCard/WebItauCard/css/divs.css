@@ -1,0 +1,68 @@
+/* Fonte e stylo Jquery das paginas    */
+/*div { border: 1px solid;}*/
+body{ font: 70% "Trebuchet MS", sans-serif; }
+
+/* layout pagina principal    */
+
+
+
+#pagina{
+    
+        margin-top:0px;
+        width:auto;
+        margin-top:0px;
+        margin-left:auto;
+        margin-right:auto;    
+    }
+   
+#div_cabecalho {
+
+        font: 75% "Trebuchet MS", sans-serif;
+        margin-top:0px;
+        margin-left:0px;
+        width:100%;
+        height:7%;
+        background-repeat:no-repeat;
+      
+    }
+#div_menu {
+    
+        font: 90% "Trebuchet MS", sans-serif;
+        margin-top:0px;
+        margin-left:0px;
+        float: left;
+        width: 38px;
+        height:100%;
+        text-align: left;
+        padding-left: 0px;
+        padding-top: 0px;
+        background: #cccccc;
+        border-radius: 3px;
+        border: 1px solid #aaaaaa;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        }
+
+#div_conteudo{
+ 
+        font: 100% "Trebuchet MS", sans-serif;
+        padding-right: 0px;
+        padding-left: 3.5px;
+        padding-top: 0px;    
+        background-color: transparent; 
+        border-radius: 3px;
+        margin-top: 60px;
+        margin-left: 45px;
+        z-index: 0;
+}
+
+div.ui-widget-header {
+    width: 100%;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}

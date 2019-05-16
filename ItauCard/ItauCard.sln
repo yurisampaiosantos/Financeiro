@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8949F4FC-CE07-4F22-9722-9EC66CC53B44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOD", "MOD\MOD.csproj", "{165C64D0-7A75-4484-926C-D14F6653F0EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEG", "NEG\NEG.csproj", "{F2C75CCB-5C81-468E-8A1D-D7EA44A7432A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebItauCard", "http://localhost:22728", "{0DF616D8-79B6-4AA9-95FE-E9BC8C488B31}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{f2c75ccb-5c81-468e-8a1d-d7ea44a7432a}|NEG.dll;{8949F4FC-CE07-4F22-9722-9EC66CC53B44}|DAL.dll;{165C64D0-7A75-4484-926C-D14F6653F0EE}|MOD.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_22728"
+		Debug.AspNetCompiler.PhysicalPath = "WebItauCard\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22728\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_22728"
+		Release.AspNetCompiler.PhysicalPath = "WebItauCard\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22728\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WebItauCard\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://wchltfs01:8080/tfs/eep
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DAL\\DAL.csproj
+		SccProjectName1 = DAL
+		SccLocalPath1 = DAL
+		SccProjectUniqueName2 = MOD\\MOD.csproj
+		SccProjectName2 = MOD
+		SccLocalPath2 = MOD
+		SccProjectUniqueName3 = NEG\\NEG.csproj
+		SccProjectName3 = NEG
+		SccLocalPath3 = NEG
+		SccWebProject4 = true
+		SccProjectUniqueName4 = http://localhost:22728
+		SccProjectName4 = WebItauCard
+		SccLocalPath4 = WebItauCard
+		SccProjectEnlistmentChoice4 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8949F4FC-CE07-4F22-9722-9EC66CC53B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8949F4FC-CE07-4F22-9722-9EC66CC53B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8949F4FC-CE07-4F22-9722-9EC66CC53B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8949F4FC-CE07-4F22-9722-9EC66CC53B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165C64D0-7A75-4484-926C-D14F6653F0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165C64D0-7A75-4484-926C-D14F6653F0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165C64D0-7A75-4484-926C-D14F6653F0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165C64D0-7A75-4484-926C-D14F6653F0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C75CCB-5C81-468E-8A1D-D7EA44A7432A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C75CCB-5C81-468E-8A1D-D7EA44A7432A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C75CCB-5C81-468E-8A1D-D7EA44A7432A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C75CCB-5C81-468E-8A1D-D7EA44A7432A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF616D8-79B6-4AA9-95FE-E9BC8C488B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF616D8-79B6-4AA9-95FE-E9BC8C488B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF616D8-79B6-4AA9-95FE-E9BC8C488B31}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF616D8-79B6-4AA9-95FE-E9BC8C488B31}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InserirBarcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="barcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="criadoPor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paginas" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirBarcodeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AnexarDocumentoImportacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="anexoId" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnexarDocumentoImportacaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirAnexoDocumentoImportacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="anexoId" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAnexoDocumentoImportacaoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InserirBarcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirBarcode" />
+  </wsdl:message>
+  <wsdl:message name="InserirBarcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnexarDocumentoImportacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AnexarDocumentoImportacao" />
+  </wsdl:message>
+  <wsdl:message name="AnexarDocumentoImportacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AnexarDocumentoImportacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAnexoDocumentoImportacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAnexoDocumentoImportacao" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAnexoDocumentoImportacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAnexoDocumentoImportacaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="InserirBarcode">
+      <wsdl:input message="tns:InserirBarcodeSoapIn" />
+      <wsdl:output message="tns:InserirBarcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnexarDocumentoImportacao">
+      <wsdl:input message="tns:AnexarDocumentoImportacaoSoapIn" />
+      <wsdl:output message="tns:AnexarDocumentoImportacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAnexoDocumentoImportacao">
+      <wsdl:input message="tns:ExcluirAnexoDocumentoImportacaoSoapIn" />
+      <wsdl:output message="tns:ExcluirAnexoDocumentoImportacaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirBarcode">
+      <soap:operation soapAction="http://tempuri.org/InserirBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnexarDocumentoImportacao">
+      <soap:operation soapAction="http://tempuri.org/AnexarDocumentoImportacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAnexoDocumentoImportacao">
+      <soap:operation soapAction="http://tempuri.org/ExcluirAnexoDocumentoImportacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirBarcode">
+      <soap12:operation soapAction="http://tempuri.org/InserirBarcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnexarDocumentoImportacao">
+      <soap12:operation soapAction="http://tempuri.org/AnexarDocumentoImportacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAnexoDocumentoImportacao">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirAnexoDocumentoImportacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://wdciis03/WebServiceGEDOC/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://wdciis03/WebServiceGEDOC/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <title>ENSEADA - ITAUCARD</title>
+
+
+    <script src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/js_eepsa.js"></script>
+
+    <link href="css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+    <link type="text/css" href="css/divs.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
+    <script src="js/css3-mediaqueries.js"> </script>
+
+
+
+        <style type="text/css">
+        li {
+            
+            padding: 10px 10px ;
+            width: 70%;
+            background: #cccccc;
+            color: red;
+           
+            border-radius: 3px;
+        }
+
+        a {
+            color: red;
+            font-family: Tahoma;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="pagina" style="background-image: url(''); width: auto">
+
+            <div id="div_cabecalho">
+
+                <div class="ui-widget-header">
+
+
+                    <div>
+
+                        <h3></h3>
+
+
+                    </div>
+
+
+                    <div>
+
+                        <img src="img/LOGO.png">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="div_menu">
+                <div>
+                    
+
+                </div>
+
+                <div id="smoothmenu2" class="ddsmoothmenu-v">
+                    <br style="clear: left" />
+
+                </div>
+            </div>
+
+            <div id="div_conteudo">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                
+
+            </div>
+
+        </div>
+
+
+
+
+    </form>
+</body>
+</html>

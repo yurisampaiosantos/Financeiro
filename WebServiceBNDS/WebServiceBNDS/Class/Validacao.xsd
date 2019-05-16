@@ -1,0 +1,252 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!-- XML Schema Generated from XML Document on Thu Jul 18 15:41:26 UTC-0300 2013 -->
+  <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+  
+<xs:simpleType name="VersaoType">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[2].[0-9]+"/>
+	</xs:restriction>
+</xs:simpleType> 
+
+
+<xs:simpleType name="CodigoNcmType">
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-9]{8}"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="CNPJType">
+<xs:restriction base="xs:string">
+	<xs:pattern value="[0-9]{14}"/>
+</xs:restriction>
+
+</xs:simpleType>
+<xs:simpleType name="OrigemType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Adquirido no Mercado Interno"/>
+<xs:enumeration value="Adquirido no Mercado Externo"/>
+<xs:enumeration value="Fabricação Própria"/>
+<xs:enumeration value="Nacional"/>
+<xs:enumeration value="Estrangeira"/>
+</xs:restriction>
+</xs:simpleType>
+
+
+<xs:simpleType name="TipoProducaoPPBType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Terceirização Nula ou Parcial da Produção"/>
+<xs:enumeration value="Terceirização Completa da Produção"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="Credenciamento_Produtos_CFI" type="cfi"/>
+
+<xs:complexType name="cfi">
+<xs:sequence>
+<xs:element name="row" type="RowCred"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RowCred">
+	<xs:sequence>
+		<xs:element name="Produtos" type="produtos"/>
+	</xs:sequence>
+	<xs:attribute name="Responsavel" use="required" type="xs:string"/>
+	<xs:attribute name="Cargo" use="required" type="xs:string"/>
+	<xs:attribute name="Endereco" use="required" type="xs:string"/>
+	<xs:attribute name="Telefone" use="required" type="xs:string"/>
+	<xs:attribute name="Email" use="required" type="xs:string"/>
+	<xs:attribute name="Versao" use="required" type="VersaoType"/>
+</xs:complexType>
+
+<xs:complexType name="produtos">
+	<xs:sequence>
+		<xs:element name="row" type="RowProdutos"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RowProdutos">
+<xs:sequence>
+	<xs:element name="EspecificacoesTecnicas" minOccurs="0" type="especificacoesTecnicas"/>
+	<xs:element name="Componentes" minOccurs="1" type="componentes"/>
+	<xs:element name="MaoDeObra" minOccurs="0" type="maodeobra"/>
+	<xs:element name="Servicos" minOccurs="0" type="servicos"/>
+</xs:sequence>
+<xs:attribute name="NomeFabricante" use="required" type="xs:string"/>
+<xs:attribute name="CNPJFabricante" use="required" type="CNPJType"/>
+<xs:attribute name="CodigoNcm" use="required" type="CodigoNcmType"/>
+<xs:attribute name="NomeProduto" use="required" type="xs:string"/>
+<xs:attribute name="Modelo" use="required" type="xs:string"/>
+<xs:attribute name="TipoProduto" use="required" type="xs:string"/>
+<xs:attribute name="PrecoVendaComImpostos" use="required" type="xs:double"/>
+<xs:attribute name="BaseCalculo" type="xs:double"/>
+<xs:attribute name="PercentualIPI" use="required" type="xs:double"/>
+<xs:attribute name="PercentualICMS" use="required" type="xs:double"/>
+<xs:attribute name="PesoLiquido" use="required" type="xs:string"/>
+<xs:attribute name="TaxaCambio" type="xs:double"/>
+<xs:attribute name="CodigoMoeda" type="xs:int"/>
+<xs:attribute name="BaseCalculoPIS" type="xs:double"/>
+<xs:attribute name="PercentualPIS" type="xs:double"/>
+<xs:attribute name="BaseCalculoCOFINS" type="xs:double"/>
+<xs:attribute name="PercentualCOFINS" type="xs:double"/>
+<xs:attribute name="TipoProducaoPPB" type="TipoProducaoPPBType"/>
+<xs:attribute name="PrecoAquisicaoTerceirizadaPPB" type="xs:double"/>
+<xs:attribute name="CodigoFINAMEFCC" type="xs:string"/>
+<xs:attribute name="RazaoSocialClienteFinalFCC" type="xs:string"/>
+<xs:attribute name="CNPJClienteFinalFCC" type="CNPJType"/>
+</xs:complexType>
+
+<xs:complexType name="especificacoesTecnicas">
+<xs:sequence>
+<xs:element name="row" maxOccurs="unbounded" type="RowEspecificacoesTecnicas"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RowEspecificacoesTecnicas">
+<xs:attribute name="Titulo" type="xs:string"></xs:attribute>
+<xs:attribute name="Valor" type="xs:string"></xs:attribute>
+<xs:attribute name="UnidadeMedida" use="optional" type="xs:string"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="componentes">
+<xs:sequence>
+<xs:element name="row" maxOccurs="unbounded" type="RowComponentes"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="TipoSubComponenteFabricacaoPropria">
+<xs:sequence>
+<xs:element name="rowSubcomponenteFabricacaoPropria" maxOccurs="unbounded" type="tipoRowSubcomponenteFabricacaoPropria"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoRowSubcomponenteFabricacaoPropria">
+<xs:attribute name="Nome" type="xs:string"></xs:attribute>
+<xs:attribute name="CodigoNcm" type="xs:string" use="required"></xs:attribute>
+<xs:attribute name="EspecificacaoComplementar" type="xs:string"></xs:attribute>
+<xs:attribute name="Origem" type="xs:string" use="required"></xs:attribute>
+<xs:attribute name="CodigoCFI" type="xs:string"></xs:attribute>
+<xs:attribute name="Quantidade" type="xs:double"></xs:attribute>
+<xs:attribute name="UnidadeMedida" type="xs:string"></xs:attribute>
+<xs:attribute name="ValorUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="AliquotaICM" type="xs:double"></xs:attribute>
+<xs:attribute name="BaseCalculoICM" type="xs:double"></xs:attribute>
+<xs:attribute name="AliquotaIPI" type="xs:double"></xs:attribute>
+<xs:attribute name="PesoUnitario" type="xs:double"></xs:attribute> 
+<xs:attribute name="NomeFabricante" type="xs:string"></xs:attribute>
+<xs:attribute name="CNPJFabricante" type="CNPJType"/>
+<xs:attribute name="CNPJFornecedor" type="CNPJType"></xs:attribute>
+<xs:attribute name="NomeFornecedor" type="xs:string"></xs:attribute>
+<xs:attribute name="NumeroDocumentoNFouDI" type="xs:string"></xs:attribute>
+<xs:attribute name="ChaveNF" type="xs:string"></xs:attribute>
+<xs:attribute name="CodItemNFe" type="xs:string"></xs:attribute>
+<xs:attribute name="BaseCalculoPIS" type="xs:double"></xs:attribute>
+<xs:attribute name="AliquotaPIS" type="xs:double"></xs:attribute>
+<xs:attribute name="BaseCalculoCOFINS" type="xs:double"></xs:attribute>
+<xs:attribute name="AliquotaCOFINS" type="xs:double"></xs:attribute>
+<xs:attribute name="CodigoCSTxCSOSN" type="xs:string"></xs:attribute>
+<xs:attribute name="OrigemItensFinanciaveis" type="xs:string"></xs:attribute>
+<xs:attribute name="Seq-Componente" type="xs:string"></xs:attribute>
+<xs:attribute name="CustoFOBUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="CustoCIFUnitarioDOLAR" type="xs:double"></xs:attribute>
+<xs:attribute name="ImpostoImportacaoUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="PisUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="CofinsUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="PaisOrigem" type="xs:string"></xs:attribute>
+<xs:attribute name="DireitosAntiDumpingUnitario" type="xs:double"></xs:attribute>
+<xs:attribute name="PaginaDI" type="xs:string" ></xs:attribute>
+<xs:attribute name="Acessorio" type="xs:string"></xs:attribute> 
+<xs:attribute name="CodigoTipoDocumento" type="xs:int"></xs:attribute>
+</xs:complexType>
+
+
+<xs:complexType name="RowComponentes">
+<xs:sequence>
+	<xs:element name="SubComponenteFabricacaoPropria" minOccurs="0"
+		maxOccurs="1" type="TipoSubComponenteFabricacaoPropria"/>
+</xs:sequence>
+	<xs:attribute name="Nome" type="xs:string"></xs:attribute>
+	<xs:attribute name="CodigoNcm" type="CodigoNcmType" ></xs:attribute> 
+	<xs:attribute name="EspecificacaoComplementar" type="xs:string"></xs:attribute>
+	<xs:attribute name="Origem" type="OrigemType" use="required"></xs:attribute>
+	<xs:attribute name="CodigoCFI" type="xs:int"></xs:attribute>
+	<xs:attribute name="Quantidade"  type="xs:double"></xs:attribute>
+	<xs:attribute name="UnidadeMedida"  type="xs:string"></xs:attribute>
+	<xs:attribute name="CustoFOBUnitario" type="xs:double"></xs:attribute>
+	<xs:attribute name="CustoCIFUnitarioDOLAR" type="xs:double"></xs:attribute>
+	<xs:attribute name="ImpostoImportacaoUnitario" type="xs:double"></xs:attribute>
+	<xs:attribute name="DireitosAntiDumpingUnitario" type="xs:double"></xs:attribute>
+	<xs:attribute name="ValorUnitario" type="xs:double" ></xs:attribute>
+	<xs:attribute name="AliquotaICM" type="xs:double"> </xs:attribute>      
+	<xs:attribute name="BaseCalculoICM" type="xs:double"></xs:attribute>  
+	<xs:attribute name="AliquotaIPI" type="xs:double"></xs:attribute>     
+	<xs:attribute name="PesoUnitario" type="xs:double"></xs:attribute>    
+	<xs:attribute name="NomeFabricante"  type="xs:string"></xs:attribute>
+	<xs:attribute name="CNPJFabricante" type="CNPJType"></xs:attribute>
+	<xs:attribute name="NomeFornecedor" type="xs:string"></xs:attribute>
+	<xs:attribute name="CNPJFornecedor" type="CNPJType"></xs:attribute>
+	<xs:attribute name="PaisOrigem" type="xs:string"></xs:attribute>
+	<xs:attribute name="NumeroDocumentoNFouDI" type="xs:string"></xs:attribute>
+	<xs:attribute name="ChaveNF" type="xs:string"></xs:attribute>
+	<xs:attribute name="CodItemNFe" type="xs:string"></xs:attribute>
+	<xs:attribute name="PaginaDI" type="xs:string" ></xs:attribute>
+	<xs:attribute name="CodigoCSTxCSOSN" type="xs:string" ></xs:attribute>
+	<xs:attribute name="BaseCalculoPIS" type="xs:double"></xs:attribute>
+	<xs:attribute name="AliquotaPIS" type="xs:double"></xs:attribute>
+	<xs:attribute name="BaseCalculoCOFINS" type="xs:double"></xs:attribute>
+	<xs:attribute name="AliquotaCOFINS" type="xs:double"></xs:attribute>
+	<xs:attribute name="Seq-Componente" type="xs:string"></xs:attribute>
+	<xs:attribute name="OrigemItensFinanciaveis" type="xs:string"></xs:attribute>
+	<xs:attribute name="PisUnitario" type="xs:double"></xs:attribute>
+	<xs:attribute name="CofinsUnitario" type="xs:double"></xs:attribute>
+	<xs:attribute name="Acessorio" type="xs:string"></xs:attribute> 
+	<xs:attribute name="CodigoTipoDocumento" type="xs:int"></xs:attribute>
+	
+	<xs:attribute name="PorcentagemSigPlaniPPB" type="xs:double"></xs:attribute>
+	<xs:attribute name="DistribuicaoPPB" type="xs:double"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="maodeobra">
+<xs:sequence>
+	<xs:element name="row" maxOccurs="unbounded" type="RowMaoDeObra"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RowMaoDeObra">
+<xs:attribute name="Funcao" type="xs:string" ></xs:attribute>
+<xs:attribute name="NomeCBO" type="xs:string" ></xs:attribute>
+<xs:attribute name="CodigoCBO" type="xs:int" ></xs:attribute>
+<xs:attribute name="Origem" type="xs:string" ></xs:attribute>
+<xs:attribute name="ValorRemuneracaoMensal" type="xs:double" ></xs:attribute>
+<xs:attribute name="ValorRemuneracaoAnualUS" type="xs:double" ></xs:attribute>
+<xs:attribute name="ValorEncargos" type="xs:double" ></xs:attribute>
+<xs:attribute name="JornadaTrabalho" type="xs:double" ></xs:attribute>
+<xs:attribute name="ProdutividadeTrabalho" type="xs:double" ></xs:attribute>
+<xs:attribute name="PaisOrigem" type="xs:string" ></xs:attribute>
+<xs:attribute name="TempoUsualPermanenciaPais" type="xs:int" ></xs:attribute>
+<xs:attribute name="Seq-MaoObra" type="xs:string"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="servicos">
+<xs:sequence>
+	<xs:element name="row" maxOccurs="unbounded" type="RowServicos"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RowServicos">
+<xs:attribute name="Codigo" type="xs:string" ></xs:attribute>
+<xs:attribute name="EspecificacaoComplementar" type="xs:string" ></xs:attribute>
+<xs:attribute name="Origem" type="xs:string" ></xs:attribute>
+<xs:attribute name="TotalMoedaNacional" type="xs:double" ></xs:attribute>
+<xs:attribute name="TotalUS" type="xs:double" ></xs:attribute>
+<xs:attribute name="Aliquota_ISS" type="xs:double" ></xs:attribute>
+<xs:attribute name="BaseCalculo_ISS" type="xs:double" ></xs:attribute>
+<xs:attribute name="TaxaRateio" type="xs:double" ></xs:attribute>
+<xs:attribute name="PaisOrigem" type="xs:string" ></xs:attribute>
+<xs:attribute name="NomePrestadora" type="xs:string" ></xs:attribute>
+<xs:attribute name="CNPJPrestadora" type="xs:string" ></xs:attribute>
+<xs:attribute name="ServicoContratado" type="xs:string" ></xs:attribute>
+<xs:attribute name="Seq-Servico" type="xs:string"></xs:attribute>
+</xs:complexType>
+
+</xs:schema>
